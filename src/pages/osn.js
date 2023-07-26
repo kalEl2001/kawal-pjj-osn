@@ -74,9 +74,6 @@ const OSN = () => {
   const [loading, setLoading] = useState(true);
   const [userProgressesData, setUserProgressesData] = useState([]);
 
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-
   const [order, setOrder] = useState("desc");
   const [orderBy, setOrderBy] = useState("totalScore");
 
@@ -121,6 +118,10 @@ const OSN = () => {
       const problems = response.data.data;
       let aliases = [];
       for (const problem of problems) {
+        const alias = problem.alias;
+        if (alias.startsWith("0")) {
+          continue;
+        }
         aliases.push(problem.alias);
         totalProblemCount++;
       }
