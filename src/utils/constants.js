@@ -8,4 +8,7 @@ const usernameToUserDataMap = {
   faishol01: { name: "Faishol", province: "Prov. Jawa Timur" },
 };
 
-export { usernames, usernameToUserDataMap, psetSlugs };
+// For OSN page only. Check "NEXT_HARDCODE_PROBLEM_ALIASES" variable in .env file.
+const hardcodedProblemAliases = ["1A", "1B", "1C", "2A", "2B", "2C"];
+
+export { usernames, usernameToUserDataMap, psetSlugs, hardcodedProblemAliases };

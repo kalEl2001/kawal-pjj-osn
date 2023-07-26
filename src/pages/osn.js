@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import { axiosClientHandler } from "@/utils/api";
-import { usernames, psetSlugs, usernameToUserDataMap } from "@/utils/constants";
+import {
+  usernames,
+  psetSlugs,
+  usernameToUserDataMap,
+  hardcodedProblemAliases,
+} from "@/utils/constants";
 import { calcColor } from "@/utils/calcColor";
 
 const {
@@ -70,6 +76,7 @@ function stableSort(array, comparator) {
 }
 
 const OSN = () => {
+  const router = useRouter();
   const [problemList, setProblemList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [userProgressesData, setUserProgressesData] = useState([]);
@@ -88,45 +95,61 @@ const OSN = () => {
     setOrderBy(newOrderBy);
   };
 
+  const getProblemsetJid = async (slug) => {
+    const params = {
+      slug: slug,
+    };
+
+    const response = await axiosClientHandler.get("/api/data/osn/problemset", {
+      params,
+    });
+
+    return response.data.jid;
+  };
+
   const fetchData = async () => {
     setLoading(true);
     let jids = [];
     for (const slug of psetSlugs) {
-      const params = {
-        slug: slug,
-      };
-
-      const response = await axiosClientHandler.get(
-        "/api/data/osn/problemset",
-        { params }
-      );
-      jids.push({ slug: slug, jid: response.data.jid });
+      const response = getProblemsetJid(slug);
+      jids.push({ slug: slug, jid: response });
     }
 
     let problemList = {};
 
     let totalProblemCount = 0;
 
-    for (const jid of jids) {
-      const params = {
-        jid: jid.jid,
-      };
-
-      const response = await axiosClientHandler.get("/api/data/osn/problems", {
-        params,
-      });
-      const problems = response.data.data;
-      let aliases = [];
-      for (const problem of problems) {
-        const alias = problem.alias;
-        if (alias.startsWith("0")) {
-          continue;
-        }
-        aliases.push(problem.alias);
-        totalProblemCount++;
+    if (process.env.NEXT_PUBLIC_HARDCODE_PROBLEM_ALIASES === "true") {
+      for (const slug of psetSlugs) {
+        problemList[slug] = hardcodedProblemAliases;
+        totalProblemCount += hardcodedProblemAliases.length;
       }
-      problemList[jid.slug] = aliases;
+    } else {
+      for (const jid of jids) {
+        const params = {
+          jid: jid.jid,
+        };
+
+        const response = await axiosClientHandler.get(
+          "/api/data/osn/problems",
+          {
+            params,
+          }
+        );
+        const problems = response.data.data;
+        let aliases = [];
+        for (const problem of problems) {
+          const alias = problem.alias;
+          if (alias.startsWith("0")) {
+            continue;
+          }
+          aliases.push(problem.alias);
+          totalProblemCount++;
+        }
+        problemList[jid.slug] = aliases;
+      }
     }
+
     setProblemList(problemList);
 
     const userProgressesMapResponse = await axiosClientHandler.get(
@@ -183,7 +206,9 @@ const OSN = () => {
 
   useEffect(() => {
     document.title = "Arsip OSN/KSN";
-    fetchData();
+    if (router.isReady) {
+      fetchData();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
