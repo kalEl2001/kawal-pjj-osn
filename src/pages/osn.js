@@ -91,15 +91,6 @@ const OSN = () => {
     setOrderBy(newOrderBy);
   };
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
-
   const fetchData = async () => {
     setLoading(true);
     let jids = [];
@@ -229,6 +220,7 @@ const OSN = () => {
               ml: "auto",
               mr: "auto",
               width: "90%",
+              height: "88vh",
               textAlign: "center",
               justifyContent: "center",
               overflow: "scroll",
@@ -239,7 +231,7 @@ const OSN = () => {
           >
             <TableContainer
               sx={{
-                maxHeight: 440,
+                maxHeight: "80vh",
               }}
             >
               <Table stickyHeader aria-label="sticky table">
@@ -308,61 +300,50 @@ const OSN = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {userProgressesData
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((userProgress) => (
-                      <TableRow
-                        hover
-                        role="checkbox"
-                        tabIndex={-1}
-                        key={userProgress.name}
-                        sx={{
-                          height: 70,
+                  {userProgressesData.map((userProgress) => (
+                    <TableRow
+                      hover
+                      role="checkbox"
+                      tabIndex={-1}
+                      key={userProgress.name}
+                      sx={{
+                        height: 70,
+                      }}
+                    >
+                      <TableCell align="left" style={{ minWidth: 350 }}>
+                        {userProgress.name}
+                      </TableCell>
+                      <TableCell align="left" style={{ minWidth: 200 }}>
+                        {userProgress.province}
+                      </TableCell>
+                      <TableCell
+                        align="center"
+                        style={{
+                          backgroundColor: userProgress.totalScore.color,
+                          minWidth: 80,
                         }}
                       >
-                        <TableCell align="left" style={{ minWidth: 350 }}>
-                          {userProgress.name}
-                        </TableCell>
-                        <TableCell align="left" style={{ minWidth: 200 }}>
-                          {userProgress.province}
-                        </TableCell>
-                        <TableCell
-                          align="center"
-                          style={{
-                            backgroundColor: userProgress.totalScore.color,
-                            minWidth: 80,
-                          }}
-                        >
-                          {userProgress.totalScore.value}
-                        </TableCell>
-                        {psetSlugs.map((slug) =>
-                          problemList[slug].map((problem) => (
-                            <TableCell
-                              align="center"
-                              key={problem}
-                              style={{
-                                backgroundColor:
-                                  userProgress[slug + "-" + problem].color,
-                              }}
-                            >
-                              {userProgress[slug + "-" + problem].value}
-                            </TableCell>
-                          ))
-                        )}
-                      </TableRow>
-                    ))}
+                        {userProgress.totalScore.value}
+                      </TableCell>
+                      {psetSlugs.map((slug) =>
+                        problemList[slug].map((problem) => (
+                          <TableCell
+                            align="center"
+                            key={problem}
+                            style={{
+                              backgroundColor:
+                                userProgress[slug + "-" + problem].color,
+                            }}
+                          >
+                            {userProgress[slug + "-" + problem].value}
+                          </TableCell>
+                        ))
+                      )}
+                    </TableRow>
+                  ))}
                 </TableBody>
               </Table>
             </TableContainer>
-            <TablePagination
-              rowsPerPageOptions={[10, 25, 100]}
-              component="div"
-              count={userProgressesData.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
           </Paper>
         </>
       )}

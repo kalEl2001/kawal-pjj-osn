@@ -76,8 +76,6 @@ const PD = () => {
 
   const [columns, setColumns] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const [order, setOrder] = useState("desc");
   const [orderBy, setOrderBy] = useState("totalSolved");
@@ -91,15 +89,6 @@ const PD = () => {
     const toggledOrder = isAsc ? "desc" : "asc";
     setOrder(toggledOrder);
     setOrderBy(newOrderBy);
-  };
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
   };
 
   const fetchPdScoreboard = async () => {
@@ -218,6 +207,7 @@ const PD = () => {
               ml: "auto",
               mr: "auto",
               width: "90%",
+              height: "88vh",
               textAlign: "center",
               justifyContent: "center",
               overflow: "scroll",
@@ -228,7 +218,7 @@ const PD = () => {
           >
             <TableContainer
               sx={{
-                maxHeight: 440,
+                maxHeight: "80vh",
               }}
             >
               <Table stickyHeader aria-label="sticky table">
@@ -263,55 +253,44 @@ const PD = () => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {userProgressesData
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row) => {
-                      return (
-                        <TableRow
-                          hover
-                          role="checkbox"
-                          tabIndex={-1}
-                          key={row.username}
-                          sx={{
-                            height: 70,
-                          }}
-                        >
-                          {columns.map((column) => {
-                            const value = row[column.id];
-                            return (
-                              <TableCell
-                                key={column.id}
-                                align={column.align ? column.align : "center"}
-                                sx={{
-                                  backgroundColor:
-                                    typeof value === "object"
-                                      ? value.color
-                                      : "white",
-                                }}
-                              >
-                                {column.format && typeof value === "number"
-                                  ? column.format(value)
-                                  : typeof value === "object"
-                                  ? value.value
-                                  : value}
-                              </TableCell>
-                            );
-                          })}
-                        </TableRow>
-                      );
-                    })}
+                  {userProgressesData.map((row) => {
+                    return (
+                      <TableRow
+                        hover
+                        role="checkbox"
+                        tabIndex={-1}
+                        key={row.username}
+                        sx={{
+                          height: 70,
+                        }}
+                      >
+                        {columns.map((column) => {
+                          const value = row[column.id];
+                          return (
+                            <TableCell
+                              key={column.id}
+                              align={column.align ? column.align : "center"}
+                              sx={{
+                                backgroundColor:
+                                  typeof value === "object"
+                                    ? value.color
+                                    : "white",
+                              }}
+                            >
+                              {column.format && typeof value === "number"
+                                ? column.format(value)
+                                : typeof value === "object"
+                                ? value.value
+                                : value}
+                            </TableCell>
+                          );
+                        })}
+                      </TableRow>
+                    );
+                  })}
                 </TableBody>
               </Table>
             </TableContainer>
-            <TablePagination
-              rowsPerPageOptions={[10, 25, 100]}
-              component="div"
-              count={userProgressesData.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
           </Paper>
         </>
       )}
