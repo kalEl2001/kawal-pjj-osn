@@ -1,0 +1,23 @@
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 15vh auto 0 auto;
+  padding: 0 1rem;
+  max-width: 800px;
+  font-family: "Roboto", sans-serif;
+}
+
+.title {
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.5rem;
+}

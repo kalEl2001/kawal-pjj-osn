@@ -1,0 +1,29 @@
+.navbutton {
+  color: white;
+  transition: 0.3s;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  font-weight: 700;
+  text-align: center;
+}
+
+.navbutton:hover {
+  border-bottom: 3px solid white;
+  transition: 0.3s;
+}
+
+.navbutton:disabled {
+  transition: 0.3s;
+  border-bottom: 3px solid rgb(241, 107, 17);
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  background: -webkit-linear-gradient(
+    100.19deg,
+    rgb(241, 39, 17),
+    rgb(245, 175, 25)
+  ) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  font-weight: 700 !important;
+}
