@@ -1,8 +1,16 @@
 const psetSlugs = ["osn-2022", "ksn-2021", "ksn-2020", "osn-2019", "osn-2018"];
 
 const usernames = [
+  "arifkhalfani",
   "Ackhava",
+  "devitoSans",
+  "Anand07",
+  "Seeplusplus",
+  "Hyroft",
+  "hamizghanii1706",
   "akram1717",
+  "Fid_spin",
+  "Troll321",
   "bagasangga",
   "palpale",
   "Ryan_Ethan_Halim",
@@ -13,6 +21,7 @@ const usernames = [
   "Sentreb",
   "glenaoi",
   "trianandaharahap",
+  "Imperion",
   "MikiMiku",
   "MuhammadFakhryZaki",
   "Mitty_123",
@@ -26,6 +35,9 @@ const usernames = [
   "Raoul",
   "lalaiing",
   "syfa",
+  "D4",
+  "Viole",
+  "just_06",
   "dhapin",
   "Rayhanrizqy",
   "Fon1as",
@@ -37,14 +49,19 @@ const usernames = [
   "felejunelus",
   "bananade",
   "HannanAfif",
+  "splaypancake",
   "AdrielJ",
   "Miko",
+  "Pangeran.mubaraq",
   "IDika",
   "MoonLord",
   "O_O",
   "Lenvil",
   "Lucia",
   "Nothing123",
+  "andrewM",
+  "Frolentika",
+  "JavierEW",
   "Kloce",
 ];
 
@@ -178,6 +195,10 @@ const usernameToUserDataMap = {
     name: "Jonathan Irvin Susanto",
     province: "Prov. Jawa Barat",
     group_number: 4,
+  },
+  Imperion: {
+    name: "Jefferson Abraham Dermawan",
+    province: "Prov. Jawa Barat",
   },
   MuhammadFakhryZaki: {
     name: "Muhammad Fakhry Zaki",
@@ -365,6 +386,11 @@ const usernameToUserDataMap = {
     province: "Prov. Sulawesi Tenggara",
     group_number: 1,
   },
+  Miko: { name: "Michael Widjaja", province: "Prov. Sulawesi Selatan" },
+  "Pangeran.mubaraq": {
+    name: "Muhammad Pangeran Mubaraq",
+    province: "Prov. Sulawesi Tenggara",
+  },
   IDika: {
     name: "Andika Pratama Putra Nugraha",
     province: "Prov. Sulawesi Utara",
@@ -425,6 +451,9 @@ const usernameToUserDataMap = {
     province: "Prov. Sumatera Utara",
     group_number: 3,
   },
+  andrewM: { name: "Andrew Matthian", province: "Prov. Sumatera Utara" },
+  Frolentika: { name: "Frolentika", province: "Prov. Sumatera Utara" },
+  JavierEW: { name: "Javier Enrique Wong", province: "Prov. Sumatera Utara" },
   Kloce: {
     name: "Kloce Paul William Saragih",
     province: "Prov. Sumatera Utara",
