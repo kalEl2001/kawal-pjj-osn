@@ -109,11 +109,6 @@ const OSN = () => {
 
   const fetchData = async () => {
     setLoading(true);
-    let jids = [];
-    for (const slug of psetSlugs) {
-      const response = getProblemsetJid(slug);
-      jids.push({ slug: slug, jid: response });
-    }
 
     let problemList = {};
 
@@ -125,6 +120,12 @@ const OSN = () => {
         totalProblemCount += hardcodedProblemAliases.length;
       }
     } else {
+      let jids = [];
+      for (const slug of psetSlugs) {
+        const response = getProblemsetJid(slug);
+        jids.push({ slug: slug, jid: response });
+      }
+
       for (const jid of jids) {
         const params = {
           jid: jid.jid,
