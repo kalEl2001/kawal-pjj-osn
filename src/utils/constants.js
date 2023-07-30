@@ -5,10 +5,12 @@ const usernames = [
   "Ackhava",
   "devitoSans",
   "Anand07",
+  "Satria11",
   "Seeplusplus",
   "Hyroft",
   "hamizghanii1706",
   "akram1717",
+  "Bearylover",
   "Fid_spin",
   "Troll321",
   "bagasangga",
@@ -19,6 +21,7 @@ const usernames = [
   "kayna",
   "worthytacos",
   "Sentreb",
+  "evanrusly",
   "glenaoi",
   "trianandaharahap",
   "CodeKev",
@@ -46,6 +49,7 @@ const usernames = [
   "just_06",
   "dhapin",
   "Rayhanrizqy",
+  "inizaza",
   "Fon1as",
   "vinren",
   "Yazid_H",
@@ -64,6 +68,8 @@ const usernames = [
   "ExPrime_",
   "MoonLord",
   "O_O",
+  "Leapofod",
+  "Zilet",
   "Lenvil",
   "Lucia",
   "Nothing123",
@@ -71,6 +77,7 @@ const usernames = [
   "Frolentika",
   "JavierEW",
   "Kloce",
+  "32MDT077",
 ];
 
 const usernameToUserDataMap = {
@@ -179,6 +186,7 @@ const usernameToUserDataMap = {
     province: "Prov. D.K.I. Jakarta",
     group_number: 5,
   },
+  evanrusly: { name: "Rainer Evan Rusly", province: "Prov. D.K.I. Jakarta" },
   glenaoi: {
     name: "Stanislaus Harglen Utama Sitompul",
     province: "Prov. D.K.I. Jakarta",
@@ -476,6 +484,10 @@ const usernameToUserDataMap = {
     name: "Mikhael Danise Tumanggor",
     province: "Prov. Sumatera Utara",
     group_number: 2,
+  },
+  "32MDT077": {
+    name: "Mikhael Danise Tumanggor",
+    province: "Prov. Sumatera Utara",
   },
 };
 
