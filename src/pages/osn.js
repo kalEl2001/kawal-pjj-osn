@@ -33,11 +33,19 @@ function descendingComparator(a, b, orderBy) {
       return 1;
     }
     if (b[orderBy]["value"] === a[orderBy]["value"]) {
-      if (b["name"] < a["name"]) {
+      if (b["province"] < a["province"]) {
         return 1;
       }
-      if (b["name"] > a["name"]) {
+      if (b["province"] > a["province"]) {
         return -1;
+      }
+      if (b["province"] === a["province"]) {
+        if (b["name"] < a["name"]) {
+          return 1;
+        }
+        if (b["name"] > a["name"]) {
+          return -1;
+        }
       }
     }
     return 0;
@@ -49,11 +57,19 @@ function descendingComparator(a, b, orderBy) {
     return 1;
   }
   if (b[orderBy] === a[orderBy]) {
-    if (b["name"] < a["name"]) {
+    if (b["province"] < a["province"]) {
       return 1;
     }
-    if (b["name"] > a["name"]) {
+    if (b["province"] > a["province"]) {
       return -1;
+    }
+    if (b["province"] === a["province"]) {
+      if (b["name"] < a["name"]) {
+        return 1;
+      }
+      if (b["name"] > a["name"]) {
+        return -1;
+      }
     }
   }
   return 0;
@@ -167,6 +183,8 @@ const OSN = () => {
         let currUserData = {};
         currUserData["name"] = usernameToUserDataMap[username].name;
         currUserData["province"] = usernameToUserDataMap[username].province;
+        currUserData["groupNumber"] =
+          usernameToUserDataMap[username].groupNumber;
         currUserData["totalScore"] = {};
         currUserData["totalScore"]["value"] = 0;
         for (const slug of psetSlugs) {
@@ -298,6 +316,15 @@ const OSN = () => {
                     </TableCell>
                     <TableCell align="center">
                       <TableSortLabel
+                        active={orderBy === "groupNumber"}
+                        direction={orderBy === "groupNumber" ? order : "asc"}
+                        onClick={createSortHandler("groupNumber")}
+                      >
+                        Nomor Grup
+                      </TableSortLabel>
+                    </TableCell>
+                    <TableCell align="center">
+                      <TableSortLabel
                         active={orderBy === "totalScore"}
                         direction={orderBy === "totalScore" ? order : "asc"}
                         onClick={createSortHandler("totalScore")}
@@ -342,6 +369,9 @@ const OSN = () => {
                       </TableCell>
                       <TableCell align="left" style={{ minWidth: 200 }}>
                         {userProgress.province}
+                      </TableCell>
+                      <TableCell align="center" style={{ minWidth: 200 }}>
+                        {userProgress.groupNumber}
                       </TableCell>
                       <TableCell
                         align="center"

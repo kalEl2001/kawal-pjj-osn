@@ -28,11 +28,19 @@ function descendingComparator(a, b, orderBy) {
       return 1;
     }
     if (b[orderBy]["value"] === a[orderBy]["value"]) {
-      if (b["name"] < a["name"]) {
+      if (b["province"] < a["province"]) {
         return 1;
       }
-      if (b["name"] > a["name"]) {
+      if (b["province"] > a["province"]) {
         return -1;
+      }
+      if (b["province"] === a["province"]) {
+        if (b["name"] < a["name"]) {
+          return 1;
+        }
+        if (b["name"] > a["name"]) {
+          return -1;
+        }
       }
     }
     return 0;
@@ -44,11 +52,19 @@ function descendingComparator(a, b, orderBy) {
     return 1;
   }
   if (b[orderBy] === a[orderBy]) {
-    if (b["name"] < a["name"]) {
+    if (b["province"] < a["province"]) {
       return 1;
     }
-    if (b["name"] > a["name"]) {
+    if (b["province"] > a["province"]) {
       return -1;
+    }
+    if (b["province"] === a["province"]) {
+      if (b["name"] < a["name"]) {
+        return 1;
+      }
+      if (b["name"] > a["name"]) {
+        return -1;
+      }
     }
   }
   return 0;
@@ -123,6 +139,12 @@ const PD = () => {
         minWidth: 200,
       },
       {
+        id: "groupNumber",
+        label: "Nomor Grup",
+        align: "center",
+        minWidth: 200,
+      },
+      {
         id: "totalSolved",
         label: "Total Skor",
         align: "center",
@@ -142,6 +164,8 @@ const PD = () => {
       userProgressData["username"] = username;
       userProgressData["name"] = usernameToUserDataMap[username].name;
       userProgressData["province"] = usernameToUserDataMap[username].province;
+      userProgressData["groupNumber"] =
+        usernameToUserDataMap[username].groupNumber;
       userProgressData["totalSolved"] = {};
       userProgressData["totalSolved"]["value"] = totalSolved;
       userProgressData["totalSolved"]["color"] = calcColor(
