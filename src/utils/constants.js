@@ -1,10 +1,12 @@
 const psetSlugs = ["osn-2022", "ksn-2021", "ksn-2020", "osn-2019", "osn-2018"];
 
 const usernames = [
+  "Joel_MW",
   "arifkhalfani",
   "Ackhava",
   "devitoSans",
   "Anand07",
+  "KitasCraft",
   "Satria11",
   "Seeplusplus",
   "Hyroft",
@@ -18,33 +20,46 @@ const usernames = [
   "Ryan_Ethan_Halim",
   "cly0402",
   "faeilana",
+  "gunadi",
   "kayna",
+  "Nust",
   "worthytacos",
   "Sentreb",
+  "nobelsu",
   "evanrusly",
   "glenaoi",
+  "amartaida",
   "trianandaharahap",
   "CodeKev",
+  "fathmubina",
   "Imperion",
   "MikiMiku",
   "MuhammadFakhryZaki",
   "Mitty_123",
   "Jesslyn_nathania19",
+  "yusuf12360",
+  "VincentK",
   "harzuqi",
   "davinpwk",
   "EarlyOcean",
+  "Elvin_Terriano_Hadi",
   "ffalih_",
+  "syauqyi",
   "matthewhutama",
   "Sokuzo21",
   "NafisMath",
   "William40",
   "Abel_Dean",
   "eur",
+  "Jason.Sidharta123",
+  "kenpegrasio",
   "Michael_H",
   "lanangz",
   "Raoul",
+  "Vetto28",
   "lalaiing",
   "syfa",
+  "JasmiY26",
   "D4",
   "Viole",
   "just_06",
@@ -52,11 +67,16 @@ const usernames = [
   "Rayhanrizqy",
   "inizaza",
   "Fon1as",
+  "Ghalibi",
   "vinren",
+  "putri.izzatullah",
   "Yazid_H",
   "Ntha",
+  "23042514000118u",
   "habib_rizqi",
+  "JupiterJJ",
   "adamnooriman",
+  "inyh",
   "DhimasPutra ",
   "felejunelus",
   "bananade",
@@ -64,6 +84,7 @@ const usernames = [
   "splaypancake",
   "AdrielJ",
   "Miko",
+  "Priyz",
   "Pangeran.mubaraq",
   "IDika",
   "ExPrime_",
@@ -82,6 +103,11 @@ const usernames = [
 ];
 
 const usernameToUserDataMap = {
+  Joel_MW: {
+    name: "Joel Moreno Wirawan",
+    province: "Luar Negeri",
+    group_number: 1,
+  },
   arifkhalfani: {
     name: "Muhammad Arif Khalfani Ismail",
     province: "Prov. Aceh",
@@ -101,6 +127,11 @@ const usernameToUserDataMap = {
     name: "I Ketut Anand Amertha",
     province: "Prov. Bali",
     groupNumber: 2,
+  },
+  KitasCraft: {
+    name: "I Nyoman Narayan Kitas Utama",
+    province: "Prov. Bali",
+    groupNumber: 5,
   },
   Satria11: {
     name: "Satria Edafausta Tjiaman",
@@ -167,10 +198,20 @@ const usernameToUserDataMap = {
     province: "Prov. D.K.I. Jakarta",
     groupNumber: 5,
   },
+  gunadi: {
+    name: "Gunadi Gani",
+    province: "Prov. D.K.I. Jakarta",
+    groupNumber: 5,
+  },
   kayna: {
     name: "Kayna Mufidah",
     province: "Prov. D.K.I. Jakarta",
     groupNumber: 5,
+  },
+  Nust: {
+    name: "Keenan Christopher Adimulia",
+    province: "Prov. D.K.I. Jakarta",
+    groupNumber: 4,
   },
   worthytacos: {
     name: "Kevin Cornellius Widjaja",
@@ -182,6 +223,11 @@ const usernameToUserDataMap = {
     province: "Prov. D.K.I. Jakarta",
     groupNumber: 3,
   },
+  nobelsu: {
+    name: "Nobel Suhendra",
+    province: "Prov. D.K.I. Jakarta",
+    groupNumber: 4,
+  },
   evanrusly: {
     name: "Rainer Evan Rusly",
     province: "Prov. D.K.I. Jakarta",
@@ -192,6 +238,11 @@ const usernameToUserDataMap = {
     province: "Prov. D.K.I. Jakarta",
     groupNumber: 4,
   },
+  amartaida: {
+    name: "Mohamad Ashraf Malabali",
+    province: "Prov. Gorontalo",
+    groupNumber: 1,
+  },
   trianandaharahap: {
     name: "Triananda Marsya Harahap",
     province: "Prov. Jambi",
@@ -199,6 +250,11 @@ const usernameToUserDataMap = {
   },
   CodeKev: {
     name: "Clement Kevin Tanadi",
+    province: "Prov. Jawa Barat",
+    groupNumber: 3,
+  },
+  fathmubina: {
+    name: "Fathan Mubina",
     province: "Prov. Jawa Barat",
     groupNumber: 3,
   },
@@ -227,6 +283,16 @@ const usernameToUserDataMap = {
     province: "Prov. Jawa Barat",
     groupNumber: 4,
   },
+  yusuf12360: {
+    name: "Sultan Afif Kanz",
+    province: "Prov. Jawa Barat",
+    groupNumber: 2,
+  },
+  VincentK: {
+    name: "Vincent Kristian Waluyo",
+    province: "Prov. Jawa Barat",
+    groupNumber: 5,
+  },
   harzuqi: {
     name: "Azzam Harzuqi",
     province: "Prov. Jawa Tengah",
@@ -242,10 +308,20 @@ const usernameToUserDataMap = {
     province: "Prov. Jawa Tengah",
     groupNumber: 3,
   },
+  Elvin_Terriano_Hadi: {
+    name: "Elvin Terriano Hadi",
+    province: "Prov. Jawa Tengah",
+    groupNumber: 3,
+  },
   ffalih_: {
     name: "Faishal Falih",
     province: "Prov. Jawa Tengah",
     groupNumber: 3,
+  },
+  syauqyi: {
+    name: "M.Syauqyi Habibi",
+    province: "Prov. Jawa Tengah",
+    groupNumber: 2,
   },
   matthewhutama: {
     name: "Matthew Hutama Pramana",
@@ -277,6 +353,16 @@ const usernameToUserDataMap = {
     province: "Prov. Jawa Timur",
     groupNumber: 5,
   },
+  "Jason.Sidharta123": {
+    name: "Christopher Jason Sidharta",
+    province: "Prov. Jawa Timur",
+    groupNumber: 5,
+  },
+  kenpegrasio: {
+    name: "Jansen Ken Pegrasio",
+    province: "Prov. Jawa Timur",
+    groupNumber: 4,
+  },
   Michael_H: {
     name: "Michael Hartono",
     province: "Prov. Jawa Timur",
@@ -292,12 +378,22 @@ const usernameToUserDataMap = {
     province: "Prov. Jawa Timur",
     groupNumber: 2,
   },
+  Vetto28: {
+    name: "Rayyan Aqsha Raditya",
+    province: "Prov. Jawa Timur",
+    groupNumber: 2,
+  },
   lalaiing: {
     name: "Stella Ling Raharjo",
     province: "Prov. Jawa Timur",
     groupNumber: 2,
   },
   syfa: { name: "Syauqi Faza", province: "Prov. Jawa Timur", groupNumber: 5 },
+  JasmiY26: {
+    name: "Jasmine Paskah Wang",
+    province: "Prov. Kalimantan Barat",
+    groupNumber: 4,
+  },
   D4: {
     name: "Yazdi Dzunurrayn Ahmadi",
     province: "Prov. Kalimantan Selatan",
@@ -333,10 +429,20 @@ const usernameToUserDataMap = {
     province: "Prov. Lampung",
     groupNumber: 3,
   },
+  Ghalibi: {
+    name: "Ghalib Safaraz Harimurti",
+    province: "Prov. Lampung",
+    groupNumber: 2,
+  },
   vinren: {
     name: "Vincent Valentino Oei",
     province: "Prov. Maluku",
     groupNumber: 5,
+  },
+  "putri.izzatullah": {
+    name: "Putri Izzatullah Khairunnisa",
+    province: "Prov. Maluku Utara",
+    groupNumber: 1,
   },
   Yazid_H: {
     name: "Yazid Aqila Haikal",
@@ -348,14 +454,29 @@ const usernameToUserDataMap = {
     province: "Prov. Nusa Tenggara Timur",
     groupNumber: 1,
   },
+  "23042514000118u": {
+    name: "Mishbah Zaim",
+    province: "Prov. Papua",
+    groupNumber: 1,
+  },
   habib_rizqi: {
     name: "Habib Firjatulah Rizqi",
     province: "Prov. Papua Barat",
     groupNumber: 1,
   },
+  JupiterJJ: {
+    name: "Sitti Aisyah",
+    province: "Prov. Papua Barat Daya ",
+    groupNumber: 1,
+  },
   adamnooriman: {
     name: "Adam Nooriman",
     province: "Prov. Papua Selatan",
+    groupNumber: 1,
+  },
+  inyh: {
+    name: "Nurul Inayah",
+    province: "Prov. Papua Tengah",
     groupNumber: 1,
   },
   DhimasPutra: {
@@ -391,6 +512,11 @@ const usernameToUserDataMap = {
   Miko: {
     name: "Michael Widjaja",
     province: "Prov. Sulawesi Selatan",
+    groupNumber: 3,
+  },
+  Priyz: {
+    name: "Priyanggara Zuhaynanda Zavana",
+    province: "Prov. Sulawesi Tengah",
     groupNumber: 3,
   },
   "Pangeran.mubaraq": {
